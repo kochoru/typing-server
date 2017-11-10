@@ -1,7 +1,6 @@
 package com.example.typing.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,8 +15,8 @@ public class PlayerController {
 
     // TODO: idとipアドレスだけでよい？
     @PostMapping()
-    public Player confirmUser(Model model) {
-        model.addAttribute(new Player());
+    public Player confirmUser(Player player) {
+        
 
     }
 }
