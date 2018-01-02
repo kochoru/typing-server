@@ -3,6 +3,9 @@
 
 `\l`
 
+# データベース接続
+`\c appdb`
+
 # ロールの作成
 `create role appusr with login password 'appusr';`
 
@@ -28,4 +31,8 @@ create table typing_app.t_player (
 ```
 
 # 権限の作成
+`grant connect on database appdb to appusr;`
+
+`grant usage on schema typing_app to appusr;`
+
 `grant select, update, insert, delete on all tables in schema typing_app to appusr;`

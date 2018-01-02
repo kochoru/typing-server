@@ -6,8 +6,8 @@ spring:
 # `---`でプロファイルを区切る
 # プロファイル名は spring.profiles に書く
 # 開発用
- ---
- spring:
+---
+spring:
   profiles: dev
   datasource:
     url: jdbc:postgresql://localhost:5432/appdb
@@ -18,10 +18,11 @@ spring:
     maxIdle: 10
     minIdle: 5
     initialSize: 0
+logging.file: spring-boot.log
 
 # 本番用
 ---
- spring:
+spring:
   profiles: production
   datasource:
     url: 
@@ -32,5 +33,6 @@ spring:
     maxIdle: 10
     minIdle: 5
     initialSize: 0
+logging.file: spring-boot.log
     
 # `java -jar -Dspring.profiles.active=production hoge.jar`

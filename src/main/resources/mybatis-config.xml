@@ -5,7 +5,7 @@
 <configuration>
   <settings>
     <setting name="jdbcTypeForNull" value="NULL" />
-    <!-- <setting name="defaultFetchSize" value="200"/> -->
+    <setting name="defaultFetchSize" value="50"/>
     <setting name="mapUnderscoreToCamelCase" value="true" />
   </settings>
   <typeAliases>

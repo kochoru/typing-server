@@ -36,7 +36,7 @@ public interface PlayerMapper {
             + "score, "
             + "last_play_time, "
             + "admin_flg, "
-            + "challeng_count "
+            + "challenge_count "
             + "from typing_app.t_player "
             + "order by score desc")
     List<Player> findAll();
@@ -51,7 +51,7 @@ public interface PlayerMapper {
             + "score, "
             + "last_play_time, "
             + "admin_flg, "
-            + "challeng_count "
+            + "challenge_count "
             + "from typing_app.t_player "
             + "where last_play_time >= timestamp '2018-01-23 08:40:00' "
             + "and last_play_time <= timestamp '2018-01-23 17:10:00' "
