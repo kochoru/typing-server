@@ -2,6 +2,8 @@ package com.example.typing.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,9 +21,9 @@ public class PlayerController {
     @Autowired
     PlayerService playerService;
 
-    // TODO: idとipアドレスだけでよい？
     @PostMapping(path = "{id}")
-    public Player confirmPlayer(Player player) {
+    public Player confirmPlayer(Player player, HttpServletRequest request) {
+        player.setIpAddress(request.getRemoteAddr());
         Player confirmedPlayer = playerService.find(player.getId(), player.getIpAddress());
         // 存在していなければ新しくレコードを作成する。
         if (confirmedPlayer == null) {
