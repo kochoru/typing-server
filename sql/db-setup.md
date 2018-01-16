@@ -9,8 +9,13 @@
 # ロールの作成
 `create role appusr with login password 'appusr';`
 
+`\du`
+
 # スキーマの作成
 `create schema typing_app;`
+
+`\dn`
+
 
 # テーブルの作成
 ```sql
@@ -29,6 +34,8 @@ create table typing_app.t_player (
 );
 
 ```
+
+`\dt`
 
 # 権限の作成
 `grant connect on database appdb to appusr;`
