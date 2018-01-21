@@ -114,15 +114,8 @@ public interface PlayerMapper {
     boolean create(Player entity);
 
     @Update("update typing_app.t_player set "
-            + "id = #{id}, "
-            + "name = #{name}, "
-            + "handle_name = #{handleName}, "
-            + "department = #{department}, "
-            + "display_name_enable = #{displayNameEnable}, "
-            + "ip_address = #{ipAddress}, "
             + "score = #{score}, "
             + "last_play_time = #{lastPlayTime}, "
-            + "admin_flg = #{adminFlg}, "
             + "challenge_count = #{challengeCount} "
             + "where id = #{id} and ip_address = #{ipAddress}")
     boolean update(Player entity);

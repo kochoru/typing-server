@@ -3,6 +3,9 @@ package com.example.typing.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Player implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -71,8 +74,10 @@ public class Player implements Serializable {
         return score;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public void setScore(Integer score) {
+        if (score != null) {
+            this.score = score;
+        }
     }
 
     public int getChallengeCount() {

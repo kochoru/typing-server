@@ -7,11 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class InitialController {
 
     @RequestMapping(path = "/")
-    public String redirectToTop() {
-        return "redirect:/top";
-    }
-
-    @RequestMapping(path = "/top")
     public String top() {
         return "/index.html";
     }
