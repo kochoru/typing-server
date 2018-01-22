@@ -1,0 +1,16 @@
+com\example\typing\exception\DuplicatedIpAddressException.class
+com\example\typing\controller\PlayerController.class
+com\example\typing\controller\InitialController.class
+com\example\typing\dto\DepartmentList$Department.class
+com\example\typing\service\PlayerService.class
+com\example\typing\config\WebMvcConfig.class
+com\example\typing\controller\GenericController.class
+com\example\typing\controller\DepartmentController.class
+com\example\typing\config\DepartmentConfig.class
+com\example\typing\exception\ApiExceptionHandler.class
+com\example\typing\mapper\PlayerMapper.class
+com\example\typing\exception\ApiError.class
+com\example\typing\dto\DepartmentList.class
+com\example\typing\dto\Player.class
+com\example\typing\TypingApplication.class
+com\example\typing\config\AppConfig.class
