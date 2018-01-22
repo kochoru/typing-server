@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 import com.example.typing.dto.DepartmentList;
 
 @Configuration
-@PropertySource(value = "classpath:department.properties")
+@PropertySource(value = "classpath:department.properties", encoding = "UTF-8")
 public class DepartmentConfig {
 
     @Value("${department.label}")
