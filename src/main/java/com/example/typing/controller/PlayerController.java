@@ -61,7 +61,12 @@ public class PlayerController {
 
     @GetMapping(path = "/ranking")
     public List<Player> showRanking() {
-        return playerService.findAll();
+        return playerService.findAllProduction();
+    }
+
+    @GetMapping(path = "/perfectRanking")
+    public List<Player> showPerfectRanking() {
+        return playerService.findAllProduction();
     }
 
 }
