@@ -2,6 +2,7 @@ target/
 !target/typing-server-0.0.1-SNAPSHOT.jar
 !.mvn/wrapper/maven-wrapper.jar
 *.log
+node_modules
 
 ### STS ###
 .apt_generated

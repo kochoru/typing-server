@@ -1,0 +1,3 @@
+[submodule "src/main/webapp/typing"]
+	path = src/main/webapp/typing
+	url = https://github.com/kochoru/typing.git
