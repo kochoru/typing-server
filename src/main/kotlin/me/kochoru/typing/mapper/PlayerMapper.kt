@@ -1,16 +1,11 @@
-package com.example.typing.mapper;
+package me.kochoru.typing.mapper
 
-import java.util.List;
+import org.apache.ibatis.annotations.*
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import me.kochoru.typing.dto.Player
 
-import com.example.typing.dto.Player;
-
-public interface PlayerMapper {
+@Mapper
+interface PlayerMapper {
 
     @Select("select "
             + "id, "
@@ -25,7 +20,7 @@ public interface PlayerMapper {
             + "challenge_count as challengeCount "
             + "from typing_app.t_player "
             + "where id = #{id} and ip_address = #{ipAddress}")
-    Player findOne(@Param("id") String id, @Param("ipAddress") String ipAddress);
+    fun findOne(id: String, ipAddress: String): Player
 
     @Select("select "
             + "id, "
@@ -40,7 +35,7 @@ public interface PlayerMapper {
             + "challenge_count as challengeCount "
             + "from typing_app.t_player "
             + "where id = #{id}")
-    Player findOneByUserId(@Param("id") String id);
+    fun findOneByUserId(id: String): Player
 
     @Select("select "
             + "id, "
@@ -55,7 +50,7 @@ public interface PlayerMapper {
             + "challenge_count as challengeCount "
             + "from typing_app.t_player "
             + "order by score desc")
-    List<Player> findAll();
+    fun findAll(): List<Player>
 
     @Select("select "
             + "id, "
@@ -70,24 +65,7 @@ public interface PlayerMapper {
             + "challenge_count as challengeCount "
             + "from typing_app.t_player "
             + "where ip_address = #{ipAddress}")
-    Player findOneByIpAddress(@Param("ipAddress") String ipAddress);
-
-    @Select("select "
-            + "id, "
-            + "name, "
-            + "handle_name as handleName, "
-            + "department, "
-            + "display_name_enable as displayNameEnable, "
-            + "ip_address as ipAddress, "
-            + "score, "
-            + "last_play_time as lastPlayTime, "
-            + "admin_flg as adminFlg, "
-            + "challenge_count as challengeCount "
-            + "from typing_app.t_player "
-            + "where last_play_time >= timestamp '2018-01-23 08:40:00' "
-            + "and last_play_time <= timestamp '2018-01-23 17:10:00' "
-            + "order by score desc")
-    List<Player> findPlayersProductionMode();
+    fun findOneByIpAddress(ipAddress: String): Player
 
     @Insert("insert into typing_app.t_player ("
             + "id, "
@@ -111,16 +89,16 @@ public interface PlayerMapper {
             + "#{lastPlayTime}, "
             + "#{adminFlg}, "
             + "#{challengeCount})")
-    boolean create(Player entity);
+    fun create(entity: Player): Boolean
 
     @Update("update typing_app.t_player set "
             + "score = #{score}, "
             + "last_play_time = #{lastPlayTime}, "
             + "challenge_count = #{challengeCount} "
             + "where id = #{id} and ip_address = #{ipAddress}")
-    boolean update(Player entity);
+    fun update(entity: Player): Boolean
 
     @Delete("delete from typing_app.t_player "
             + "where id = #{id} and ip_address = #{ipAddress}")
-    boolean delete(@Param("id") String id, @Param("ipAddress") String ipAddress);
+    fun delete(id: String, ipAddress: String): Boolean
 }
