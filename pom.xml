@@ -150,6 +150,25 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy resources</id>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <!-- maven-frontend-pluginより後のタイミングで実行する必要がある -->
+            <phase>process-resources</phase>
+            <configuration>
+              <outputDirectory>${basedir}/target/extra-resources</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>src/non-packaged-resources</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
         <configuration>
           <nonFilteredFileExtensions>
             <nonFilteredFileExtension>ttf</nonFilteredFileExtension>
