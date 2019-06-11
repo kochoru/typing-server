@@ -23,6 +23,12 @@ jobs:
     steps:
       - checkout
 
+      - run:
+          name: "Checkout submodule"
+          command: |
+            git submodule init
+            git submodule update --remote
+
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -30,15 +36,18 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: mvn dependency:go-offline
+      - run:
+          name: "Install"
+          command: mvn dependency:go-offline
 
       - save_cache:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
-      # run tests!
-      - run: mvn clean package
+      - run:
+          name: "Build"
+          command: mvn clean package
 
       - store_test_results: # uploads the test metadata from the `target/surefire-reports` directory so that it can show up in the CircleCI dashboard.
           # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
